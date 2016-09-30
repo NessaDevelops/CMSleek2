@@ -3,11 +3,10 @@
  */
 var mongoose = require('mongoose');
 var UserModel = require('./schemas/users');
-var BucketlistModel = require('./schemas/bucketlists');
-var GoalModel = require('./schemas/goals');
-var MemoryModel = require('./schemas/memories');
-var StaticGoalModel = require('./schemas/staticGoals');
-var AchievementModel = require('./schemas/achievements');
+var FileModel = require('./schemas/files');
+var PageThemeModel = require('./schemas/page-themes');
+var PageModel = require('./schemas/pages');
+var ThemeModel = require('./schemas/themes');
 
 // Connections
 var developmentDb = 'mongodb://localhost/test';
@@ -46,8 +45,7 @@ db.once('open', function callback () {
 });
 
 exports.users = UserModel;
-exports.bucketlists = BucketlistModel;
-exports.goals = GoalModel;
-exports.memories = MemoryModel;
-exports.staticGoals = StaticGoalModel;
-exports.achievements = AchievementModel;
+exports.files = FileModel;
+exports.pageThemes = PageThemesModel;
+exports.pages = PageModel;
+exports.themes = ThemeModel;

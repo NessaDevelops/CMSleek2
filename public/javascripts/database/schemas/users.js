@@ -4,15 +4,11 @@ var passwordHash = require('password-hash');
 
 // Define the User Schema
 var userSchema = new Schema({
-    username: { type: String, required: true },
+    username: { type: String },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    firstName: { type: String, required: false},
-    lastName: { type: String, required: false},
-    gender: { type: Boolean, required: false},
-    dob: { type: Date, required: false},
-    lastLoggedIn: { type: Date, required: true}
-
+    password: { type: String },
+    role: { type: String, required: true },
+    verified: { type: Boolean, required: true }
 });
 
 // A method that's called every time a user document is saved..
