@@ -9,7 +9,7 @@ var PageModel = require('./schemas/pages');
 var ThemeModel = require('./schemas/themes');
 
 // Connections
-var usedDb = 'mongodb://<dbuser>:<dbpassword>@ds041546.mlab.com:41546/cmsleek';
+var usedDb = 'mongodb://<admin>:<getmeanstaysleek>@ds041546.mlab.com:41546/cmsleek';
 
 mongoose.connect(usedDb);
 
