@@ -1,5 +1,12 @@
 extends layout
 
-block content
+block main
   h1 Add User
   p Welcome to #{title}
+  form
+    div
+      input(type='text', required=true, placeholder="role")
+    div
+      input(type='text', required=true, placeholder="email")
+    div
+      input(type='submit', value="create user")
