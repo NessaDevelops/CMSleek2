@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var passwordHash = require('password-hash');
+// var passwordHash = require('password-hash');
 
 // Define the User Schema
 var userSchema = new Schema({
@@ -17,13 +17,13 @@ userSchema.pre('save', function (next) {
     var user = this;
 
     // If the password hasn't been modified, move along...
-    if (!user.isModified('password')) {
-        return next();
-    }
+    // if (!user.isModified('password')) {
+    //     return next();
+    // }
 
-    var hashedPassword = passwordHash.generate(user.password);
+    // var hashedPassword = passwordHash.generate(user.password);
 
-    user.password = hashedPassword;
+    // user.password = hashedPassword;
     next();
 });
 

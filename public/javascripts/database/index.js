@@ -9,7 +9,7 @@ var PageModel = require('./schemas/pages');
 var ThemeModel = require('./schemas/themes');
 
 // Connections
-var usedDb = 'mongodb://<admin>:<getmeanstaysleek>@ds041546.mlab.com:41546/cmsleek';
+var usedDb = 'mongodb://admin:getmeanstaysleek@ds041546.mlab.com:41546/cmsleek';
 
 mongoose.connect(usedDb);
 
@@ -20,16 +20,11 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 // Open the connection
 db.once('open', function callback () {
-    console.log('Databsae Connection Successfully Opened at ' + usedDb);
-});
-
-// Open the connection
-db.once('open', function callback () {
-    console.log('Databsae Connection Successfully Opened at ' + usedDb);
+    console.log('Database Connection Successfully Opened at ' + usedDb);
 });
 
 exports.users = UserModel;
 exports.files = FileModel;
-exports.pageThemes = PageThemesModel;
+exports.pageThemes = PageThemeModel;
 exports.pages = PageModel;
 exports.themes = ThemeModel;

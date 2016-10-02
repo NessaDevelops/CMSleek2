@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var File = mongoose.Schema;
+var Schema = mongoose.Schema;
 
 var fileSchema = new Schema({
     name: { type: String, required: true },
@@ -15,4 +15,4 @@ fileSchema.pre('save', function (next) {
 
 var File = mongoose.model('File', fileSchema);
 
-module.exports = Page;
+module.exports = File;
