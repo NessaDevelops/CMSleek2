@@ -3,5 +3,10 @@ html
   head
     title= title
     //- link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block main
+    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js",type="application/javascript")
+    script(src="/javascripts/app.js",type="application/javascript")
+    script(src="/javascripts/controllers/create-user.js",type="application/javascript")
+ 
+  body(ng-app="myapp")
+    div(ui-view)
+      block main

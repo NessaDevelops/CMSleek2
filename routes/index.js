@@ -7,8 +7,8 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET add user page. */
-router.get('/add-user', function(req, res, next) {
-  res.render('add-user', { title: 'Express' });
+router.get('/create-user', function(req, res, next) {
+  res.render('create-user', { title: 'Express' });
 });
 
 /* GET users page. */
