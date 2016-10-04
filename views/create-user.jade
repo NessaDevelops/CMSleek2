@@ -4,7 +4,7 @@ block main
   h1 Create User
   p Welcome to #{title}
   div(ng-controller="CreateUserCtrl")
-    form
+    form(action="/create-user", method="post")
       div
         input(type='text', required=true, placeholder="role", id="role", name="role", ng-model="createUser.user.role")
       div

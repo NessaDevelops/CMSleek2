@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var db = require('./public/javascripts/database/index')
+var db = require('./public/scripts/database/index');
 
 var app = express();
 
@@ -60,5 +60,16 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+// var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+
+
+// app.post("/create-user", urlencodedParser, function(req, res) {
+//     var role = req.body.role;
+//     var email = req.body.email;
+
+//     console.log("Role: " + role + ", Email: " + email);
+// });
 
 module.exports = app;
