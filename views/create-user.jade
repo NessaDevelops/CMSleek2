@@ -4,10 +4,10 @@ block main
   h1 Create User
   p Welcome to #{title}
   div(ng-controller="CreateUserCtrl")
-    form(action="/create-user", method="post")
+    form(action="/createTheUser", method="post")
       div
         input(type='text', required=true, placeholder="role", id="role", name="role", ng-model="createUser.user.role")
       div
         input(type='text', required=true, placeholder="email" id="email", name="email", ng-model="createUser.user.email")
       div
-        input(type='submit', value="create user", ng-click="createUser.submit()", id="createUser", name="createUser")
+        input(type='submit', value="create user", id="createUser", name="createUser")

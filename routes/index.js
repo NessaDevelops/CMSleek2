@@ -1,44 +1,38 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+exports.index = function(req, res) {
+    res.render('index'); 
+};
 
-/* GET add user page. */
-router.get('/create-user', function(req, res, next) {
-  res.render('create-user', { title: 'Express' });
-});
+exports.createUser = function (req, res) {
+    res.render('create-user');
+};
 
-/* GET users page. */
-router.get('/users', function(req, res, next) {
-  res.render('users', { title: 'Express' });
-});
+exports.editPage = function(req, res) {
+    res.render('edit-page');  
+};
 
-/* GET themes page. */
-router.get('/themes', function(req, res, next) {
-  res.render('themes', { title: 'Express' });
-});
+exports.imageManager = function (req, res) {
+    res.render('image-manager');
+};
 
-/* GET pages page. */
-router.get('/pages', function(req, res, next) {
-  res.render('pages', { title: 'Express' });
-});
+exports.pageThemes = function(req, res) {
+    res.render('page-themes'); 
+};
 
-/* GET page themes page. */
-router.get('/page-themes', function(req, res, next) {
-  res.render('page-themes', { title: 'Express' });
-});
+exports.pages = function (req, res) {
+    res.render('pages');
+};
 
-/* GET page edit page page. */
-router.get('/edit-page', function(req, res, next) {
-  res.render('edit-page', { title: 'Express' });
-});
+exports.themes = function(req, res) {
+    res.render('themes'); 
+};
 
-/* GET page image manager page. */
-router.get('/image-manager', function(req, res, next) {
-  res.render('image-manager', { title: 'Express' });
-});
+exports.users = function (req, res) {
+    res.render('users');
+};
 
-module.exports = router;
+exports.createTheUser = function(req, res) {
+    console.log("PLEASE CREATE USER FUNC");
+};

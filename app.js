@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+// var users = require('./routes/users');
 var db = require('./public/scripts/database/index');
 
 var app = express();
@@ -23,8 +23,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+// app.use('/', routes);
+// app.use('/users', users);
+
+var urlencodedParser = bodyParser.urlencoded({ extended: true })
+
+// ROUTES
+app.get('/', routes.index);
+app.get('/create-user', routes.createUser);
+app.get('/pages', routes.pages);
+app.get('/edit-page', routes.editPage);
+app.get('/image-manger', routes.imageManager);
+app.get('/page-themes', routes.pageThemes);
+app.get('/themes', routes.themes);
+app.get('/usera', routes.users);
+app.post('/createTheUser', urlencodedParser, routes.createTheUser);
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
@@ -60,10 +73,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-// var urlencodedParser = bodyParser.urlencoded({ extended: false })
-
-
 
 // app.post("/create-user", urlencodedParser, function(req, res) {
 //     var role = req.body.role;
