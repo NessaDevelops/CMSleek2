@@ -5,8 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-// var users = require('./routes/users');
+var routes = require('./routes/routes');
+var createUser = require('./routes/createUser')
+
 var db = require('./public/scripts/database/index');
 
 var app = express();
@@ -37,7 +38,7 @@ app.get('/image-manger', routes.imageManager);
 app.get('/page-themes', routes.pageThemes);
 app.get('/themes', routes.themes);
 app.get('/usera', routes.users);
-app.post('/createTheUser', urlencodedParser, routes.createTheUser);
+app.post('/create-user', urlencodedParser, createUser.createUser);
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');

@@ -33,6 +33,3 @@ exports.users = function (req, res) {
     res.render('users');
 };
 
-exports.createTheUser = function(req, res) {
-    console.log("PLEASE CREATE USER FUNC");
-};
