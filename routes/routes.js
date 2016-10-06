@@ -33,3 +33,6 @@ exports.users = function (req, res) {
     res.render('users');
 };
 
+exports.contentManagement = function (req, res) {
+    res.render('content-management');
+}

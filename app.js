@@ -37,7 +37,8 @@ app.get('/edit-page', routes.editPage);
 app.get('/image-manger', routes.imageManager);
 app.get('/page-themes', routes.pageThemes);
 app.get('/themes', routes.themes);
-app.get('/usera', routes.users);
+app.get('/users', routes.users);
+app.get('/content-management', routes.contentManagement);
 app.post('/create-user', urlencodedParser, createUser.createUser);
 
 app.listen(3000, function () {
