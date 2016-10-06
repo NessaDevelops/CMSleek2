@@ -2,14 +2,12 @@ var express = require('express');
 var router = express.Router();
 var _ = require('underscore');
 var color = require('cli-color')
-var db = require('../public/scripts/database');
+var db = require('../../public/scripts/database');
 var Users = db.users;
 
 exports.createUser = function(req, res) {
     var body = req.body;
     var now = new Date();
-
-    console.log("PLEASE CREATE USER FUNC: " + body.role + " and maybe: " + body.email);
 
 Users.findOne({
 
