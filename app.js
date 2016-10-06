@@ -6,7 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/routes');
-var createUser = require('./routes/createUser')
+var createUser = require('./routes/users/createUser');
+var deleteUser = require('./routes/users/deleteUser');
+var updateUser = require('./routes/users/updateUser');
+var retrieveUser = require('./routes/users/retrieveUser');
+var retrieveAllUsers = require('./routes/users/retrieveAllUsers');
+
 
 var db = require('./public/scripts/database/index');
 
@@ -40,6 +45,11 @@ app.get('/themes', routes.themes);
 app.get('/users', routes.users);
 app.get('/content-management', routes.contentManagement);
 app.post('/create-user', urlencodedParser, createUser.createUser);
+app.post('/delete-user', urlencodedParser, deleteUser.deleteUser);
+app.post('/update-user', urlencodedParser, updateUser.updateUser);
+app.post('/retrieve-user', urlencodedParser, retrieveUser.retrieveUser);
+app.post('/retrieve-all-users', urlencodedParser, retrieveAllUsers.retrieveAllUsers);
+
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
