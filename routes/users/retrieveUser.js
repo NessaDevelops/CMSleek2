@@ -14,8 +14,7 @@ exports.retrieveUser = function(req, res) {
 
     Users.find({
 
-        'email': body.email
-
+        
     }, function (err, users) {
 
         if (err) {

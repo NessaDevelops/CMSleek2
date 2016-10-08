@@ -46,9 +46,9 @@ app.get('/users', routes.users);
 app.get('/content-management', routes.contentManagement);
 app.post('/create-user', urlencodedParser, createUser.createUser);
 app.post('/delete-user', urlencodedParser, deleteUser.deleteUser);
-app.post('/update-user', urlencodedParser, updateUser.updateUser);
+// app.post('/update-user', urlencodedParser, updateUser.updateUser);
 app.post('/retrieve-user', urlencodedParser, retrieveUser.retrieveUser);
-app.post('/retrieve-all-users', urlencodedParser, retrieveAllUsers.retrieveAllUsers);
+// app.post('/retrieve-all-users', urlencodedParser, retrieveAllUsers.retrieveAllUsers);
 
 
 app.listen(3000, function () {

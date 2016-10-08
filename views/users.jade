@@ -3,3 +3,6 @@ extends layout
 block main
   h1 Users
   p Welcome to #{title}
+  div(ng-controller="UsersCtrl")
+      div(ng-repeat="user in users")
+        p Email: {{user.email}}, Role: {{user.role}}
