@@ -1,8 +1,10 @@
 extends layout
 
 block main
+  include management-nav
   h1 Users
-  p Welcome to #{title}
   div(ng-controller="UsersCtrl")
+      a(href="/create-user") Create User
       div(ng-repeat="user in users")
         p Email: {{user.email}}, Role: {{user.role}}
+        button(ng-click="deleteUser(user.email)") Delete

@@ -1,13 +1,13 @@
 extends layout
 
 block main
+  include management-nav
   h1 Create User
-  p Welcome to #{title}
-  div(ng-controller="CreateUserCtrl")
-    form(action="/create-user", method="post")
+  div(ng-controller="UsersCtrl")
+    form
       div
-        input(type='text', required=true, placeholder="role", id="role", name="role", ng-model="createUser.user.role")
+        input(type='text', required=true, placeholder="role", id="role", name="role", ng-model="role")
       div
-        input(type='text', required=true, placeholder="email" id="email", name="email", ng-model="createUser.user.email")
+        input(type='text', required=true, placeholder="email" id="email", name="email", ng-model="email")
       div
-        input(type='submit', value="create user", id="createUser", name="createUser")
+        input(type='submit', value="create user", id="createUser", name="createUser", ng-click="createUser()")

@@ -3,10 +3,9 @@
 angular.module('myapp')
   .controller('UsersCtrl', function ($scope, $http, $window) {
 
-    var user,
-      createUser;
+    var user, users, request;
 
-    var request = $http.post('/retrieve-user', user);
+    request = $http.post('/retrieve-user', user);
 
     request.success(function (data) {
         console.log(data.getUsers);
@@ -22,4 +21,43 @@ angular.module('myapp')
         console.log(data);
         console.log(data.getUsers);
     });
+
+    $scope.createUser = function () {
+      $scope.user = {
+        email: $scope.email,
+        role: $scope.role
+      };
+
+      console.log($scope.role);
+      console.log($scope.email);
+
+      request = $http.post('/create-user', $scope.user);
+
+      request.success(function (data) {
+          location.href = "http://localhost:3000/users";
+      });
+
+      request.error(function (data) {
+          console.log(data);
+      });
+    }
+
+    $scope.deleteUser = function (email) {
+      $scope.email = {
+        email: email
+      };
+
+      console.log(email);
+      console.log($scope.email);
+
+      request = $http.post('/delete-user', $scope.email);
+
+      request.success(function (data) {
+          location.reload();
+      });
+
+      request.error(function (data) {
+          console.log(data);
+      });
+    }
   });

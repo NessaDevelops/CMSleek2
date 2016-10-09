@@ -12,6 +12,7 @@ exports.deleteUser = function(req, res) {
     var body = req.body;
 
     console.log(body);
+    console.log(body.email);
 
     var now = new Date();
 
