@@ -6,5 +6,5 @@ block main
   div(ng-controller="PagesCtrl")
       a(href="/create-page") Create Page
       div(ng-repeat="page in pages")
-        p Website: {{page.website}}, Name: {{page.name}}
-        button(ng-click="deletePage(page.name, page.website)") Delete
+        p Name: {{page.name}}
+        button(ng-click="deletePage(page.name)") Delete

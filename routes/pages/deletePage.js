@@ -10,13 +10,12 @@ exports.deletePage = function(req, res) {
     var body = req.body;
 
     console.log(body);
-    console.log(body.name + " " + body.website);
+    console.log(body.name);
 
     var now = new Date();
 
     Pages.findOneAndRemove({
 
-        'website': body.website,
         'name': body.name
 
     }, function (err, pages) {

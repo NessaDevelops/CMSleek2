@@ -24,12 +24,10 @@ angular.module('myapp')
 
     $scope.createPage = function () {
       $scope.page = {
-        name: $scope.name,
-        website: $scope.website
+        name: $scope.name
       };
 
       console.log($scope.page);
-      console.log($scope.website);
 
       request = $http.post('/create-page', $scope.page);
 
@@ -44,8 +42,7 @@ angular.module('myapp')
 
     $scope.deletePage = function (name, website) {
       $scope.page = {
-        name: name,
-        website: website
+        name: name
       };
 
       console.log($scope.page);

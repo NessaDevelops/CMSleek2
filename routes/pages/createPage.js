@@ -9,11 +9,10 @@ exports.createPage = function(req, res) {
     var body = req.body;
     var now = new Date();
 
-    console.log("STUFF: " + body.website + " AND " + body.name);
+    console.log("STUFF: " + body.name);
 
     Pages.findOne({
 
-        'website': body.website,
         'name': body.name
 
     }, function (err, page) {
@@ -37,7 +36,6 @@ exports.createPage = function(req, res) {
             // setup the new user
             var newPage = new Pages({
                 name: body.name,
-                website: body.website,
                 content: 'content here'
             });
 
