@@ -3,4 +3,8 @@ extends layout
 block main
   include management-nav
   h1 Pages
-  p Welcome to #{title}
+  div(ng-controller="PagesCtrl")
+      a(href="/create-page") Create Page
+      div(ng-repeat="page in pages")
+        p Website: {{page.website}}, Name: {{page.name}}
+        button(ng-click="deletePage(page.name, page.website)") Delete

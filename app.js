@@ -6,12 +6,18 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/routes');
+
 var createUser = require('./routes/users/createUser');
 var deleteUser = require('./routes/users/deleteUser');
 var updateUser = require('./routes/users/updateUser');
 var retrieveUser = require('./routes/users/retrieveUser');
 var retrieveAllUsers = require('./routes/users/retrieveAllUsers');
 
+var createPage = require('./routes/pages/createPage');
+var deletePage = require('./routes/pages/deletePage');
+// var updatePage = require('./routes/pages/updatePage');
+var retrievePage = require('./routes/pages/retrievePage');
+// var retrieveAllPages = require('./routes/pages/retrieveAllPages');
 
 var db = require('./public/scripts/database/index');
 
@@ -29,14 +35,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', routes);
-// app.use('/users', users);
-
 var urlencodedParser = bodyParser.urlencoded({ extended: true })
 
 // ROUTES
 app.get('/', routes.index);
 app.get('/create-user', routes.createUser);
+app.get('/create-page', routes.createPage);
 app.get('/pages', routes.pages);
 app.get('/edit-page', routes.editPage);
 app.get('/image-manger', routes.imageManager);
@@ -44,11 +48,18 @@ app.get('/page-themes', routes.pageThemes);
 app.get('/themes', routes.themes);
 app.get('/users', routes.users);
 app.get('/content-management', routes.contentManagement);
+
 app.post('/create-user', urlencodedParser, createUser.createUser);
 app.post('/delete-user', urlencodedParser, deleteUser.deleteUser);
 // app.post('/update-user', urlencodedParser, updateUser.updateUser);
 app.post('/retrieve-user', urlencodedParser, retrieveUser.retrieveUser);
 // app.post('/retrieve-all-users', urlencodedParser, retrieveAllUsers.retrieveAllUsers);
+
+app.post('/create-page', urlencodedParser, createPage.createPage);
+app.post('/delete-page', urlencodedParser, deletePage.deletePage);
+// app.post('/update-page', urlencodedParser, updatePage.updatePage);
+app.post('/retrieve-page', urlencodedParser, retrievePage.retrievePage);
+// app.post('/retrieve-all-page', urlencodedParser, retrieveAllPages.retrieveAllPages);
 
 
 app.listen(3000, function () {
@@ -85,12 +96,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-// app.post("/create-user", urlencodedParser, function(req, res) {
-//     var role = req.body.role;
-//     var email = req.body.email;
-
-//     console.log("Role: " + role + ", Email: " + email);
-// });
 
 module.exports = app;

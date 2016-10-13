@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var pageSchema = new Schema({
-    name: { type: String, required: true },
+    name: { type: String, required: true, unique: true },
+    website: { type: String, required: true },
     content: { type: String, required: true }
 });
 

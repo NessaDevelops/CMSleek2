@@ -1,0 +1,13 @@
+extends layout
+
+block main
+  include management-nav
+  h1 Create Page
+  div(ng-controller="PagesCtrl")
+    form
+      div
+        input(type='text', required=true, placeholder="website", id="website", name="website", ng-model="website")
+      div
+        input(type='text', required=true, placeholder="name" id="name", name="name", ng-model="name")
+      div
+        input(type='submit', value="create page", id="createPage", name="createPage", ng-click="createPage()")

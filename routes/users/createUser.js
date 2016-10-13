@@ -23,7 +23,7 @@ Users.findOne({
 
             // send the error
             res.status(500).json({
-                'message': 'Internal server error from signing up new user. Please contact support@yourproject.com.'
+                'message': 'Internal server error from signing up new user.'
             });
         }
 
@@ -46,7 +46,7 @@ Users.findOne({
                 if (err) {
                     console.log('Problem saving the user ' + color.yellow(body.email) + ' due to ' + err);
                     res.status(500).json({
-                        'message': 'Database error trying to sign up.  Please contact support@yourproject.com.'
+                        'message': 'Database error trying to sign up.'
                     });
                 }
 

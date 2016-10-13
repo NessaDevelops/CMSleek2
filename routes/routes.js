@@ -9,6 +9,10 @@ exports.createUser = function (req, res) {
     res.render('create-user');
 };
 
+exports.createPage = function (req, res) {
+    res.render('create-page');
+};
+
 exports.editPage = function(req, res) {
     res.render('edit-page');  
 };
@@ -35,4 +39,4 @@ exports.users = function (req, res) {
 
 exports.contentManagement = function (req, res) {
     res.render('content-management');
-}
+};
