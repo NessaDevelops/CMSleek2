@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('myapp')
-  .controller('PagesCtrl', function ($scope, $http, $window) {
+  .controller('PagesCtrl', function ($scope, $http, $window, $cookieStore) {
 
-    var page, pages, request;
+    var page, pages, request, selectedPage;
+
+    console.log($cookieStore.get("selectedPage"));
+    $scope.selectedPage = $cookieStore.get("selectedPage");
 
     request = $http.post('/retrieve-page', page);
 
@@ -35,12 +38,25 @@ angular.module('myapp')
       });
     }
 
-    $scope.deletePage = function (name, website) {
+    $scope.editPage = function (name) {
+        var content = "";
+        console.log($cookieStore.get("selectedPage"));
+        if($scope.selectedPage.content != "" || null) {
+            content = $scope.selectedPage.content;
+        }
+        $scope.selectedPage = {
+            name: name,
+            content: content
+        }
+
+        $cookieStore.put("selectedPage", $scope.selectedPage);
+        location.href = "http://localhost:3000/edit-page";
+    }
+
+    $scope.deletePage = function (name) {
       $scope.page = {
         name: name
       };
-
-      console.log($scope.page);
 
       request = $http.post('/delete-page', $scope.page);
 
@@ -51,5 +67,16 @@ angular.module('myapp')
       request.error(function (data) {
           console.log(data);
       });
+    }
+
+    $scope.submitEdit = function () {
+        var name = $scope.selectedPage.name;
+        $scope.selectedPage = {
+            name: name,
+            content: content.value
+        };
+        
+        $cookieStore.put("selectedPage", $scope.selectedPage);
+        location.href = "http://localhost:3000/pages";
     }
   });

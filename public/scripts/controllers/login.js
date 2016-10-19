@@ -24,7 +24,6 @@ angular.module('myapp')
     }
 
     $scope.logout = function () {
-        console.log("come here");
         $cookieStore.remove("user");
         location.href = "http://localhost:3000/users";
     }
