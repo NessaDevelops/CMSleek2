@@ -3,6 +3,16 @@
 angular.module('myapp')
   .controller('PagesCtrl', function ($scope, $http, $window, $cookieStore) {
 
+    tinymce.init({
+        selector: '#myarea1',
+        height: 230,
+        plugins: 'link image code',
+        relative_urls: false,
+        content_css: [
+            '//www.tinymce.com/css/codepen.min.css'
+    ]
+    });
+
     var page, pages, request, selectedPage;
 
     console.log($cookieStore.get("selectedPage"));
@@ -69,14 +79,12 @@ angular.module('myapp')
       });
     }
 
-    $scope.submitEdit = function () {
-        var name = $scope.selectedPage.name;
-        $scope.selectedPage = {
-            name: name,
-            content: content.value
-        };
-        
-        $cookieStore.put("selectedPage", $scope.selectedPage);
-        location.href = "http://localhost:3000/pages";
+   $scope.content = function () {
+        // Get the HTML contents of the currently active editor
+        console.debug(tinyMCE.activeEditor.getContent());
+        //method1 getting the content of the active editor
+        alert(tinyMCE.activeEditor.getContent());
+        //method2 getting the content by id of a particular textarea
+        alert(tinyMCE.get('myarea1').getContent());
     }
   });

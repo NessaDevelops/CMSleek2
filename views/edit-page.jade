@@ -6,8 +6,7 @@ block main
   div(ng-controller="PagesCtrl")
     p {{selectedPage.name}}
     p {{selectedPage.content}}
-    form
+    form(method="post" action="somepage")
       div
-        input(type="textarea", required=true, placeholder="type content here" id="content", name="content", ng-model="content")
-      div
-        input(type='submit', value="submit", id="editPage", name="editPage", ng-click="submitEdit()")
+        textarea(id="myarea1", name="myarea1", cols="85", rows="10")
+    button(ng-click="content()") Get content
