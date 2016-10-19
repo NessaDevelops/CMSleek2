@@ -1,25 +1,21 @@
 'use strict';
 
 angular.module('myapp')
-  .controller('UsersCtrl', function ($scope, $http, $window) {
+  .controller('UsersCtrl', function ($scope, $http, $window, $cookieStore) {
 
-    var user, users, request;
+    var user, users, request, currentUser;
 
-    request = $http.post('/retrieve-user', user);
+    $scope.currentUser = $cookieStore.get('user');
+
+    request = $http.post('/retrieve-all-users', user);
 
     request.success(function (data) {
         console.log(data.getUsers);
         $scope.users = data.getUsers;
-        // localStorage.setItem("bucketlists", JSON.stringify(data.getBucketlists));
-        // console.log(localStorage.getItem("bucketlists"));
-        // var getBucketlists = localStorage.getItem("bucketlists");
-        // $scope.myBucketlists = JSON.parse(getBucketlists);
-        // console.log($scope.myBucketlists);
     });
 
     request.error(function (data) {
         console.log(data);
-        console.log(data.getUsers);
     });
 
     $scope.createUser = function () {
@@ -27,9 +23,6 @@ angular.module('myapp')
         email: $scope.email,
         role: $scope.role
       };
-
-      console.log($scope.role);
-      console.log($scope.email);
 
       request = $http.post('/create-user', $scope.user);
 
@@ -46,9 +39,6 @@ angular.module('myapp')
       $scope.email = {
         email: email
       };
-
-      console.log(email);
-      console.log($scope.email);
 
       request = $http.post('/delete-user', $scope.email);
 

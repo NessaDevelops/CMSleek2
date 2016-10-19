@@ -5,6 +5,7 @@ block main
   h1 Users
   div(ng-controller="UsersCtrl")
       a(href="/create-user") Create User
+      p Signed In User Email: {{currentUser.email}} ; Password: {{currentUser.password}} 
       div(ng-repeat="user in users")
         p Email: {{user.email}}, Role: {{user.role}}
         button(ng-click="deleteUser(user.email)") Delete

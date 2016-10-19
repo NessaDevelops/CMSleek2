@@ -47,13 +47,14 @@ app.get('/image-manger', routes.imageManager);
 app.get('/page-themes', routes.pageThemes);
 app.get('/themes', routes.themes);
 app.get('/users', routes.users);
+app.get('/login', routes.login);
 app.get('/content-management', routes.contentManagement);
 
 app.post('/create-user', urlencodedParser, createUser.createUser);
 app.post('/delete-user', urlencodedParser, deleteUser.deleteUser);
 // app.post('/update-user', urlencodedParser, updateUser.updateUser);
 app.post('/retrieve-user', urlencodedParser, retrieveUser.retrieveUser);
-// app.post('/retrieve-all-users', urlencodedParser, retrieveAllUsers.retrieveAllUsers);
+app.post('/retrieve-all-users', urlencodedParser, retrieveAllUsers.retrieveAllUsers);
 
 app.post('/create-page', urlencodedParser, createPage.createPage);
 app.post('/delete-page', urlencodedParser, deletePage.deletePage);

@@ -12,32 +12,39 @@ exports.retrieveUser = function(req, res) {
 
     var now = new Date();
 
-    Users.find({
+    Users.findOne({
 
-        
-    }, function (err, users) {
+        'email': body.email
+
+    }, function (err, user) {
 
         if (err) {
-            console.log('Couldn\'t load any users at ' + color.red(now) + ' with the email: ' + color.red(body.email) + ' because of: ' + err);
+            console.log('Couldn\'t load a user at ' + color.red(now) + ' with the email: ' + color.red(body.email) + ' because of: ' + err);
             res.status(500).json({
-                'message': 'Internal server error from finding users.'
+                'message': 'Internal server error from finding user.'
             });
         }
 
-        if (!users) {
+        if (!user) {
             console.log('not found em');
             res.status(409).json({
-                'message': ' No users currently created with the email: ' + body.email
+                'message': ' No user currently created with the email: ' + body.email
             });
         }
 
-        if (users) {
+        if (user) {
             console.log('found em');
-            console.log(users);
-            res.status(201).json({
-                getUsers : users
-            });
+            console.log(user);
+            if(body.password == user.password) {
+                res.status(201).json({
+                    getUser : user,
+                    'message': 'Logged in! Password: '  + user.password + ' Email: ' + user.email
+                });
+            } else {
+                res.status(409).json({
+                    'message': body.password + ' is not the correct password!'
+                });
+            }            
         }
     });
-
 };

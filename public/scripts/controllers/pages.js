@@ -10,11 +10,6 @@ angular.module('myapp')
     request.success(function (data) {
         console.log(data.getPages);
         $scope.pages = data.getPages;
-        // localStorage.setItem("bucketlists", JSON.stringify(data.getBucketlists));
-        // console.log(localStorage.getItem("bucketlists"));
-        // var getBucketlists = localStorage.getItem("bucketlists");
-        // $scope.myBucketlists = JSON.parse(getBucketlists);
-        // console.log($scope.myBucketlists);
     });
 
     request.error(function (data) {
