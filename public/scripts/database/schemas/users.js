@@ -8,7 +8,10 @@ var userSchema = new Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String },
     role: { type: String, required: true },
-    verified: { type: Boolean, required: true }
+    verified: { type: Boolean, required: true },
+    userControl: { type: Boolean, required: true },
+    pageControl: { type: Boolean, required: true },
+    editPages: { type: Boolean, required: true }
 });
 
 // A method that's called every time a user document is saved..

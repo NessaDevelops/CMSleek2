@@ -15,7 +15,7 @@ var retrieveAllUsers = require('./routes/users/retrieveAllUsers');
 
 var createPage = require('./routes/pages/createPage');
 var deletePage = require('./routes/pages/deletePage');
-// var updatePage = require('./routes/pages/updatePage');
+var updatePage = require('./routes/pages/updatePage');
 var retrievePage = require('./routes/pages/retrievePage');
 // var retrieveAllPages = require('./routes/pages/retrieveAllPages');
 
@@ -58,7 +58,7 @@ app.post('/retrieve-all-users', urlencodedParser, retrieveAllUsers.retrieveAllUs
 
 app.post('/create-page', urlencodedParser, createPage.createPage);
 app.post('/delete-page', urlencodedParser, deletePage.deletePage);
-// app.post('/update-page', urlencodedParser, updatePage.updatePage);
+app.post('/update-page', urlencodedParser, updatePage.updatePage);
 app.post('/retrieve-page', urlencodedParser, retrievePage.retrievePage);
 // app.post('/retrieve-all-page', urlencodedParser, retrieveAllPages.retrieveAllPages);
 

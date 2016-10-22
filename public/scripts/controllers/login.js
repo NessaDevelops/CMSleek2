@@ -3,7 +3,9 @@
 angular.module('myapp')
   .controller('LoginCtrl', function ($scope, $http, $window, $cookieStore) {
 
-    var request;
+    var request, loggedIn;
+
+    $scope.loggedIn = $cookieStore.get("loggedIn");
 
     $scope.login = function () {
       $scope.user = {
@@ -15,6 +17,7 @@ angular.module('myapp')
 
       request.success(function (data) {
           $cookieStore.put('user', data.getUser);
+          $cookieStore.put("loggedIn", true);
           location.href = "http://localhost:3000/users";
       });
 
@@ -25,6 +28,7 @@ angular.module('myapp')
 
     $scope.logout = function () {
         $cookieStore.remove("user");
+        $cookieStore.put("loggedIn", false);
         location.href = "http://localhost:3000/users";
     }
   });

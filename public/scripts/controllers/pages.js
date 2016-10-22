@@ -13,7 +13,7 @@ angular.module('myapp')
     ]
     });
 
-    var page, pages, request, selectedPage;
+    var page, pages, request, selectedPage, getContent;
 
     console.log($cookieStore.get("selectedPage"));
     $scope.selectedPage = $cookieStore.get("selectedPage");
@@ -35,8 +35,6 @@ angular.module('myapp')
         name: $scope.name
       };
 
-      console.log($scope.page);
-
       request = $http.post('/create-page', $scope.page);
 
       request.success(function (data) {
@@ -48,12 +46,7 @@ angular.module('myapp')
       });
     }
 
-    $scope.editPage = function (name) {
-        var content = "";
-        console.log($cookieStore.get("selectedPage"));
-        if($scope.selectedPage.content != "" || null) {
-            content = $scope.selectedPage.content;
-        }
+    $scope.editPage = function (name, content) {
         $scope.selectedPage = {
             name: name,
             content: content
@@ -79,12 +72,23 @@ angular.module('myapp')
       });
     }
 
-   $scope.content = function () {
-        // Get the HTML contents of the currently active editor
+   $scope.savePage = function () {
         console.debug(tinyMCE.activeEditor.getContent());
-        //method1 getting the content of the active editor
-        alert(tinyMCE.activeEditor.getContent());
-        //method2 getting the content by id of a particular textarea
-        alert(tinyMCE.get('myarea1').getContent());
+        $scope.getContent = tinyMCE.activeEditor.getContent();
+
+        $scope.newPage = {
+            name: $scope.selectedPage.name,
+            content: tinyMCE.activeEditor.getContent()
+        }
+
+        request = $http.post('/update-page', $scope.newPage);
+
+        request.success(function (data) {
+            location.href = "http://localhost:3000/pages";
+        });
+
+        request.error(function (data) {
+            console.log(data);
+        });
     }
   });

@@ -8,6 +8,9 @@ var Users = db.users;
 exports.createUser = function(req, res) {
     var body = req.body;
     var now = new Date();
+    var userControl = false;
+    var pageControl = false;
+    var editPages = false;
 
 Users.findOne({
 
@@ -31,18 +34,33 @@ Users.findOne({
         if (!user) {
             console.log('Creating a new user at ' + color.green(now) + ' with the email: ' + color.green(body.email));
 
-            // setup the new user
+            switch(body.role) {
+                case "admin":
+                    userControl = true;
+                    pageControl = true;
+                    editPages = true;
+                    break;
+                case "moderator":
+                    pageControl = true;
+                    editPages = true;
+                    break;
+                case "editor":
+                    editPages = true;
+                    break;
+            }
+
             var newUser = new Users({
                 username: '',
                 email: body.email,
                 role: body.role,
                 password: '',
-                verified: false
+                verified: false,
+                userControl: userControl,
+                pageControl: pageControl,
+                editPages: editPages
             });
 
-            // save the user to the database
             newUser.save(function (err, savedUser, numberAffected) {
-
                 if (err) {
                     console.log('Problem saving the user ' + color.yellow(body.email) + ' due to ' + err);
                     res.status(500).json({
@@ -61,7 +79,6 @@ Users.findOne({
             });
         }
 
-        // If the user already exists...
         if (user) {
             res.status(409).json({
                 'message': body.email + ' already exists!'

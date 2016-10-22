@@ -7,5 +7,6 @@ block main
       a(href="/create-page") Create Page
       div(ng-repeat="page in pages")
         p Name: {{page.name}}
-        button(ng-click="editPage(page.name)") Edit
+        p Content: {{page.content}}
+        button(ng-click="editPage(page.name, page.content)") Edit
         button(ng-click="deletePage(page.name)") Delete

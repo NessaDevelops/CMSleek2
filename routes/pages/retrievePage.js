@@ -8,13 +8,10 @@ var Pages = db.pages;
 exports.retrievePage = function(req, res) {
 
     var body = req.body;
-    // console.log('body: '+body);
-
     var now = new Date();
 
     Pages.find({
-
-        
+      
     }, function (err, pages) {
 
         if (err) {

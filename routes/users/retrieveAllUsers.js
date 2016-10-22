@@ -8,8 +8,6 @@ var Users = db.users;
 exports.retrieveAllUsers = function(req, res) {
 
     var body = req.body;
-    // console.log('body: '+body);
-
     var now = new Date();
 
     Users.find({

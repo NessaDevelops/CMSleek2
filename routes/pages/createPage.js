@@ -36,7 +36,7 @@ exports.createPage = function(req, res) {
             // setup the new user
             var newPage = new Pages({
                 name: body.name,
-                content: 'content here'
+                content: 'No content'
             });
 
             // save the user to the database
