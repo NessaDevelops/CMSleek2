@@ -16,10 +16,8 @@ angular.module('myapp')
         $scope.editPages = false;
     }
 
-    // STORING ROLE PERMISSIONS IN COOKIE STORE SO ABLE TO ACCESS IN PAGES CTRL
-    $cookieStore.put('userControl', $scope.userControl);
+    // STORING PAGE CONTROL PERMISSION IN COOKIE STORE SO ABLE TO ACCESS IN PAGES CTRL
     $cookieStore.put('pageControl', $scope.pageControl);
-    $cookieStore.put('editPages', $scope.editPages);
 
     $scope.loggedIn = $cookieStore.get("loggedIn");
 

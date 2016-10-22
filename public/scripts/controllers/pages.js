@@ -15,8 +15,8 @@ angular.module('myapp')
 
     var page, pages, request, selectedPage, getContent;
 
-    console.log($cookieStore.get("selectedPage"));
     $scope.selectedPage = $cookieStore.get("selectedPage");
+    $scope.pageControl = $cookieStore.get("pageControl");
 
     request = $http.post('/retrieve-page', page);
 
