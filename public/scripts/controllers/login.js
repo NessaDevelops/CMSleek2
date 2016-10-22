@@ -6,6 +6,7 @@ angular.module('myapp')
     var request, loggedIn;
 
     $scope.loggedIn = $cookieStore.get("loggedIn");
+    console.log($scope.loggedIn);
 
     $scope.login = function () {
       $scope.user = {
