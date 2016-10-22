@@ -1,10 +1,10 @@
 nav(ng-controller="LoginCtrl")
     ul
-        li(ng-show="loggedIn")
+        li(ng-show="loggedIn && userControl")
             a(href="/users") Users
-        li(ng-show="loggedIn")
+        li(ng-show="loggedIn && editPages")
             a(href="/pages") Pages
-        li(ng-show="loggedIn")
+        li(ng-show="loggedIn && editPages")
             a(href="/themes") Themes
         li(ng-hide="loggedIn")
             a(href="/login") Login

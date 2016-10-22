@@ -5,8 +5,23 @@ angular.module('myapp')
 
     var request, loggedIn;
 
+    // STORING ROLE PERMISSIONS IN SCOPE
+    if ($cookieStore.get('user') != undefined) {
+        $scope.userControl = $cookieStore.get('user').userControl;
+        $scope.pageControl = $cookieStore.get('user').pageControl;
+        $scope.editPages = $cookieStore.get('user').editPages;
+    } else {
+        $scope.userControl = false;
+        $scope.pageControl = false;
+        $scope.editPages = false;
+    }
+
+    // STORING ROLE PERMISSIONS IN COOKIE STORE SO ABLE TO ACCESS IN PAGES CTRL
+    $cookieStore.put('userControl', $scope.userControl);
+    $cookieStore.put('pageControl', $scope.pageControl);
+    $cookieStore.put('editPages', $scope.editPages);
+
     $scope.loggedIn = $cookieStore.get("loggedIn");
-    console.log($scope.loggedIn);
 
     $scope.login = function () {
       $scope.user = {
@@ -30,6 +45,9 @@ angular.module('myapp')
     $scope.logout = function () {
         $cookieStore.remove("user");
         $cookieStore.put("loggedIn", false);
-        location.href = "http://localhost:3000/users";
+        $scope.userControl = false;
+        $scope.pageControl = false;
+        $scope.editPages = false;
+        location.href = "http://localhost:3000/login";
     }
   });
