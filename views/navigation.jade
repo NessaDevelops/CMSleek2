@@ -1,13 +1,10 @@
-extends layout
-
-block navigation
-    nav
-        ul
-            li  
-                a(href="/users") Users
-            li 
-                a(href="/pages") Pages
-            li 
-                a(href="/themes") Themes
-            li 
-                a(href="/logout") Logout
+nav(ng-controller="LoginCtrl")
+    ul
+        li(ng-show="loggedIn && userControl")
+            a(href="/users") Users
+        li(ng-show="loggedIn && editPages")
+            a(href="/pages") Pages
+        li(ng-show="loggedIn")
+            a(href="/themes") Themes
+        li(ng-show="loggedIn")
+            a(href ng-click="logout();") Logout
