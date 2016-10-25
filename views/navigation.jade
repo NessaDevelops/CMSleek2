@@ -1,5 +1,5 @@
 nav(ng-controller="LoginCtrl")
-    ul(class="navigation", ng-controller="LoginCtrl")
+    ul(ng-controller="LoginCtrl")
         li(ng-show="loggedIn && userControl")
             a(href="/users") Users
         li(ng-show="loggedIn && editPages")
