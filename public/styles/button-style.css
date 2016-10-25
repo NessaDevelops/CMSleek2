@@ -1,13 +1,13 @@
 button, input[type="submit"] {
-    -moz-box-shadow: inset 0px 1px 0px 0px #103288;
-    -webkit-box-shadow: inset 0px 1px 0px 0px #103288;
-    box-shadow: inset 0px 1px 0px 0px #103288;
-    background-color: #216288;
-    border: 1px solid #103288;
+    -moz-box-shadow: inset 0px 1px 0px 0px #EE7942;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #EE7942;
+    box-shadow: inset 0px 1px 0px 0px #EE7942;
+    background:linear-gradient(to bottom, #EA9859 5%, #FC5102 100%);
+    border: 1px solid #EE7942;
     display: inline-block;
     cursor: pointer;
     color: #FFFFFF;
-    font-family: 'Open Sans Condensed', sans-serif;
+    font: bold 1.1em/1 'trebuchet MS', Arial, Helvetica;
     font-size: 14px;
     padding: 8px 18px;
     text-decoration: none;
@@ -15,6 +15,5 @@ button, input[type="submit"] {
 }
 
 button:hover, input[type="submit"]:hover {
-    background:linear-gradient(to bottom, #214280 5%, #206288 100%);
-    background-color:#103288;
+    background:linear-gradient(to bottom, #FC5102 5%, #EA9859 100%);
 }
