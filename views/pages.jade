@@ -1,11 +1,12 @@
 extends layout
 
 block main
-  h1 Pages
-  div(ng-controller="PagesCtrl")
-      a(ng-show="pageControl" href="/create-page") Create Page
-      div(ng-repeat="page in pages")
-        p Name: {{page.name}}
-        p Content: {{page.content}}
-        button(ng-click="editPage(page.name, page.content)") Edit
-        button(ng-show="pageControl" ng-click="deletePage(page.name)") Delete
+  div(class="container")
+    h2 Pages
+    div(ng-controller="PagesCtrl")
+        a(ng-show="pageControl" href="/create-page") Create Page
+        div(ng-repeat="page in pages")
+          p Name: {{page.name}}
+          p Content: {{page.content}}
+          button(ng-click="editPage(page.name, page.content)") Edit
+          button(ng-show="pageControl" ng-click="deletePage(page.name)") Delete
