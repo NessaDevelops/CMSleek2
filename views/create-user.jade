@@ -2,12 +2,13 @@ extends layout
 
 block main
   include navigation
-  h1 Create User
-  div(ng-controller="UsersCtrl")
-    form
-      div
-        input(type='text', required=true, placeholder="role", id="role", name="role", ng-model="role")
-      div
-        input(type='text', required=true, placeholder="email" id="email", name="email", ng-model="email")
-      div
-        input(type='submit', value="create user", id="createUser", name="createUser", ng-click="createUser()")
+  div(class="form-style-8")
+    h2 Create User
+    div(ng-controller="UsersCtrl")
+      form
+        div
+          input(type='text', required=true, placeholder="role", name="field1", ng-model="role")
+        div
+          input(type='text', required=true, placeholder="email" name="field2", ng-model="email")
+        div
+          input(type='submit', value="create", id="createUser", name="createUser", ng-click="createUser()")

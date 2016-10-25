@@ -2,10 +2,11 @@ extends layout
 
 block main
   include navigation
-  h1 Create Page
-  div(ng-controller="PagesCtrl")
-    form
-      div
-        input(type='text', required=true, placeholder="name" id="name", name="name", ng-model="name")
-      div
-        input(type='submit', value="create page", id="createPage", name="createPage", ng-click="createPage()")
+  div(class="form-style-8")
+    h2 Create Page
+    div(ng-controller="PagesCtrl")
+      form
+        div
+          input(type='text', required=true, placeholder="name", name="field1", ng-model="name")
+        div
+          input(type='submit', value="create", id="createPage", name="createPage", ng-click="createPage()")

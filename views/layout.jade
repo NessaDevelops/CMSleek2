@@ -3,6 +3,8 @@ html
   head
     title CMSleek
     link(rel='stylesheet', href='/styles/style.css')
+    link(rel='stylesheet', href='/styles/form-style.css')
+    link(rel='stylesheet', href='/styles/nav-style.css')
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js",type="application/javascript")
     script(src="/scripts/app.js",type="application/javascript")
     script(src="/scripts/controllers/users.js",type="application/javascript")
@@ -14,5 +16,5 @@ html
   body(ng-app="myapp")
     p CMSleek
     block navigation
-    div(ui-view)
-      block main
+      div(ui-view)
+        block main

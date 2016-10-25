@@ -2,13 +2,13 @@ extends layout
 
 block main
   include navigation
-  h1 Login
-  div(ng-controller="LoginCtrl")
-    form
-      div
-        input(type='text', required=true, placeholder="email" id="email", name="email", ng-model="email")
-      div
-        input(type='text', required=true, placeholder="password" id="password", name="password", ng-model="password")
-      div
-        input(type='submit', value="login", id="login", name="login", ng-click="login()")
-
+  div(class="form-style-8")
+    h2 Login
+    div(ng-controller="LoginCtrl")
+      form
+        div
+          input(type='text', required=true, placeholder="email", name="field1", ng-model="email")
+        div
+          input(type='text', required=true, placeholder="password", name="field2", ng-model="password")
+        div
+          input(type='submit', value="login", id="login", name="login", ng-click="login()")
