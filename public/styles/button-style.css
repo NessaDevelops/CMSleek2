@@ -13,6 +13,7 @@ button, input[type="submit"] {
     text-decoration: none;
     text-transform: uppercase;
 }
+
 button:hover, input[type="submit"]:hover {
     background:linear-gradient(to bottom, #214280 5%, #206288 100%);
     background-color:#103288;
