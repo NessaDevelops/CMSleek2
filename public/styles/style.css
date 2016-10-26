@@ -10,6 +10,7 @@ body {
 a {
   text-decoration: none;
   color: #00B7FF;
+  font-size: 20px;
 }
 
 h2 {
@@ -23,7 +24,7 @@ h2 {
     margin: -30px -30px 30px -30px;
 }
 
-.form-style-8, .container {
+.form-style-8, .container, .small-container {
     font-family: 'Open Sans Condensed', arial, sans;
     width: 500px;
     padding: 30px;
@@ -37,4 +38,9 @@ h2 {
 
 .container {
   width: 700px;
+}
+
+.small-container {
+  padding: 30px;
+  margin: 30px auto;
 }

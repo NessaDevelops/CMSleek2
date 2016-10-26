@@ -4,12 +4,13 @@ block main
   div(class="container")
     h2 Users
     div(ng-controller="UsersCtrl")
-        a(href="/create-user") Create User
+        a(href="/create-user") +Create User
         //- p Signed In User Email: {{currentUser.email}}
         //- p Password: {{currentUser.password}}
         //- p User Control: {{currentUser.userControl}}
         //- p Page Control: {{currentUser.pageControl}}
         //- p Page Edit: {{currentUser.editPages}}
-        div(ng-repeat="user in users")
-          p Email: {{user.email}}, Role: {{user.role}}
+        div(class="small-container", ng-repeat="user in users")
+          p <b>Email:</b> {{user.email}}
+          p <b>Role:</b> {{user.role}}
           button(ng-click="deleteUser(user.email)") Delete

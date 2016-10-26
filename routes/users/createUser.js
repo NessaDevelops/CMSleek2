@@ -35,16 +35,16 @@ Users.findOne({
             console.log('Creating a new user at ' + color.green(now) + ' with the email: ' + color.green(body.email));
 
             switch(body.role) {
-                case "admin":
+                case "Admin":
                     userControl = true;
                     pageControl = true;
                     editPages = true;
                     break;
-                case "moderator":
+                case "Moderator":
                     pageControl = true;
                     editPages = true;
                     break;
-                case "editor":
+                case "Editor":
                     editPages = true;
                     break;
             }

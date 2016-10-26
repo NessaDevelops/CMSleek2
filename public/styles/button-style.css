@@ -17,3 +17,8 @@ button, input[type="submit"] {
 button:hover, input[type="submit"]:hover {
     background:linear-gradient(to bottom, #FC5102 5%, #EA9859 100%);
 }
+
+.small-container button {
+    margin-top: 15px;
+    margin-right: 15px;
+}

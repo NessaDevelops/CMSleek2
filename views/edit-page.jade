@@ -4,9 +4,11 @@ block main
   div(class="container")
     h2 Edit Page
     div(ng-controller="PagesCtrl")
-      p {{selectedPage.name}}
-      p {{selectedPage.content}}
+      p <b>Name:</b> {{selectedPage.name}}
+      p <b>Content:</b> {{selectedPage.content}}
+      <br>
       form(method="post" action="somepage")
         div
           textarea(id="myarea1", name="myarea1", cols="85", rows="10" ng-model="selectedPage.content")
+      <br>
       button(ng-click="savePage()") Save
