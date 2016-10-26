@@ -32,7 +32,7 @@ angular.module('myapp')
       request.success(function (data) {
           $cookieStore.put('user', data.getUser);
           $cookieStore.put("loggedIn", true);
-          location.href = "http://localhost:3000/users";
+          location.href = "http://localhost:3000/pages";
       });
 
       request.error(function (data) {
