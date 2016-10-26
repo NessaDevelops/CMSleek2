@@ -6,7 +6,10 @@ block main
     div(ng-controller="UsersCtrl")
       form
         div
-          input(type='text', required=true, placeholder="role", name="field1", ng-model="role")
+          select(name="field2", id="role")
+            option(value="Admin") Admin
+            option(value="Moderator") Moderator
+            option(value="Editor", selected=true) Editor        
         div
           input(type='text', required=true, placeholder="email" name="field2", ng-model="email")
         div

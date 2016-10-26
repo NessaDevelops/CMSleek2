@@ -19,9 +19,10 @@ angular.module('myapp')
     });
 
     $scope.createUser = function () {
+      var myRole = document.getElementById("role").value;
       $scope.user = {
         email: $scope.email,
-        role: $scope.role
+        role: myRole
       };
 
       request = $http.post('/create-user', $scope.user);
